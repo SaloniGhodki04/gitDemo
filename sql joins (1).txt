@@ -1,0 +1,185 @@
+Joins:
+cross join
+inner join
+outer join
+full outer join(we cannot use this in MySQL)
+self join
+
+
+outer join 
+types:
+1)left join
+2)right join
+
+Create table Teacher:
+Id (pk) name salary
+
+Create table college:
+cid  cname city
+
+1)Inner join :
+select * from teacher left join college on teacher.id=college.cid;
+
+2)Left join:
+select * from teacher left join college on teacher.id=college.cid;
+
+3)Right join:
+select * from college right join teacher on college.cid=teacher.id;
+
+4)Cross join:
+select * from teacher cross join college;
+
+5)Self join:
+select t1.name as Teacher_name ,t2.name as Teacher_names from teacher t1 join teacher t2 on t1.id<>t2.id;    t1<=t2   1<=1
+
+
+
+6)Union:
+select * from teacher left join college on teacher.id=college.cid;
+union
+select * from college right join teacher on college.cid=teacher.id;
+
+
+Create Tables:
+1)Student_joins:
+Id   name course_name   pending fees   paid fees
+
+2)Course_joins:
+cid cname fees
+
+
+Right join
+select * from student_joins right join course_joins on student_joins.sid=course_joins.cid;
+
+Left join:
+select * from course_joins left join student_joins on course_joins.cid=student_joins.sid;
+
+inner join:
+select * from student_joins inner join course_joins on student_joins.sid=course_joins.cid;
+
+Cross join:
+select * from course_joins cross join student_joins;
+
+Full  join:
+
+select * from student_joins left join course_joins on student_joins.sid=course_joins.cid
+    -> union
+    -> select * from course_joins right join student_joins on course_joins.cid=student_joins.sid;
+
+
+---------------------------
+
+BuiltIn functions:
+
+
+1)current date:
+select curdate()
+
+2)current time
+select curtime();
+
+3)current date & time
+select now()
+
+4)day ,month,year
+select day('1992-8-27');
+
+select month('1992-8-27');
+
+select year('1992-8-27');
+
+
+5)min,hour,second
+
+select minute('09:30:55');
+
+select hour('09:30:55');
+
+select second('09:30:55');
+
+
+
+6)ADDDATE:
+used to add two dates at a time.
+
+select adddate('2006-05-04',15);
+
+7)ADDTIME:
+addtime('20:15:45','01:35:29');
+
+8)Date Format:
+select date_format('1995-11-04','%m-%d-%y');
+
+
+select date_format(current_date(),'%m-%d-%y');
+
+9)DayName:
+ select dayname('2025-08-27');
+
+10)Month name:
+select monthname('2025-08-27');
+
+
+11)concat:
+is used to join two strings:
+
+select concat('nigdi','pune');
+
+select concat('nigdi',space(2),'pune');
+
+
+12)lcase:
+
+change all char into lower case:
+
+select lcase('MYSQL');
+
+13)ucase:
+convert into upper case.
+
+select ucase('mysql');
+
+
+14)left fun:
+return left most char:
+
+q) to obtain left 4 char of string Database
+
+select left('database');
+
+select right('database');
+
+-------------------------------------------------
+15)length:
+return length of string:
+
+select length('MySQL database');
+-------------------------------------------
+16)replace:
+from str --- to str
+
+select replace('data','d','D');
+
+------------------------------------------
+17)reverse()
+
+select reverse('pune');
+
+-----------------------------------------
+18)insert()
+
+select insert('hello world',5,5,'pune');
+here from 5th position ..it will remove 5 char & insert pune to that place
+
+-----------------------------------------
+
+19)strcmp:
+
+str1=str2 --- output 0
+str1<str2 --- output -1
+str>str2 --- output 1
+
+select strcmp('apple','apple');
+select strcmp('banana','apple')   select ascii('b')
+
+----------------------------
